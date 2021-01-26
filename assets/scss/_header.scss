@@ -1,0 +1,303 @@
+$hamburger-layer-color: #fff;
+$hamburger-active-layer-color: #fff;
+$hamburger-active-hover-opacity: 1;
+$hamburger-layer-height: 2px;
+$hamburger-layer-width: 28px;
+$hamburger-layer-border-radius: 0;
+@import "~hamburgers/_sass/hamburgers/hamburgers";
+header {
+  background: #262722;
+  position: fixed;
+  z-index: 999;
+  width: 100%;
+  border-bottom: 0.1rem solid #555;
+  @include breakpoint(mobile) {
+    border-bottom: 0.1rem solid #555;
+  }
+  .shrink {
+    height: 8rem !important;
+  }
+  .wrap {
+    position: relative;
+    height: 10rem;
+    transition: all $speed $style;
+    @include breakpoint(mobile) {
+      height: 6rem;
+      padding: 0 2rem;
+    }
+    @include center(space-between);
+    &__left {
+      @include center;
+      margin-right: 2rem;
+      height: 100%;
+      width: 100%;
+    }
+    &__right {
+      width: min(20rem, 100%);
+      @include center(space-between);
+      @include breakpoint(mobile) {
+        display: none;
+      }
+    }
+    .logo {
+      @include center;
+      width: min(20rem, 100%);
+      margin-right: 4rem;
+      transition: all $speed $style;
+      @include breakpoint(mobile) {
+        width: min(12rem, 100%);
+      }
+    }
+    .shrink {
+      width: min(16rem, 100%);
+    }
+    nav {
+      width: min(52rem, 100%);
+      @include center;
+      ul {
+        width: 100%;
+        height: 100%;
+        @include center(space-between);
+        @include breakpoint(mobile) {
+          flex-direction: column;
+        }
+        li {
+          height: 100%;
+        }
+        li.special {
+          position: relative;
+          &:after {
+            position: absolute;
+            content: "";
+            left: -1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            background-image: url("../img/icons/star.svg");
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            width: 2rem;
+            height: 2rem;
+            @include breakpoint(mobile) {
+              left: 0.5rem;
+            }
+          }
+        }
+        a {
+          position: relative;
+          height: 100%;
+          @include center;
+          // font-size: 1.8rem;
+          color: #fff;
+          padding: 0 1rem;
+          white-space: nowrap;
+          &:after {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            content: "";
+            width: 100%;
+            height: 0.4rem;
+            background: $green;
+            transition: all $speed $style;
+            transform: scaleX(0);
+          }
+          &:hover {
+            &:after {
+              transform: scaleX(1);
+            }
+          }
+          @include breakpoint(mobile) {
+            padding: 1.5rem;
+            &:not(:last-of-type) {
+              border-bottom: 0.1rem solid #555;
+            }
+          }
+        }
+        .active {
+          &:after {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            content: "";
+            width: 100%;
+            height: 0.4rem;
+            background: $green;
+            transition: all $speed $style;
+            transform: scaleX(1);
+          }
+        }
+      }
+      li {
+        position: relative;
+        &:hover {
+          perspective: 1000px;
+          li {
+            display: block !important;
+            opacity: 0;
+            @for $i from 1 through 15 {
+              &:nth-child(#{$i}) {
+                animation: {
+                  name: submenu;
+                  duration: 300ms;
+                  delay: (100ms * $i) - 300;
+                  timing-function: ease-in-out;
+                  fill-mode: forwards;
+                }
+              }
+            }
+          }
+        }
+        .sub-menu {
+          position: absolute;
+          top: 10rem;
+          left: 0;
+          display: block;
+          min-width: 20rem;
+          width: auto;
+          height: auto;
+          transition: $speed $style;
+          li {
+            display: none;
+            background: #262722;
+            border: 0.1rem solid #555;
+            border-top: none;
+            &:first-of-type {
+              border-top: 0.1rem solid #555;
+            }
+          }
+          a {
+            padding: 1rem;
+            white-space: normal;
+            display: block;
+            &:after {
+              height: 0.2rem;
+            }
+          }
+        }
+      }
+    }
+    nav.mobile {
+      display: none;
+      position: absolute;
+      height: calc(100vh - 6rem);
+      top: 6rem;
+      right: 0;
+      width: max(32rem, 50%);
+      background: #262722;
+      border-top: 0.1rem solid #555;
+      transform: translateX(100%);
+      transition: 0.2s;
+      @include breakpoint(mobile) {
+        display: block;
+      }
+      ul {
+        @include breakpoint(mobile) {
+          height: auto;
+          padding: 1.5rem 0;
+          align-items: flex-start;
+        }
+      }
+      li {
+        &:hover {
+          perspective: none;
+          li {
+            opacity: 1;
+            animation: none;
+          }
+        }
+      }
+      .sub-menu {
+        position: static;
+        display: block;
+        padding: 0;
+        border-top: 0.1rem solid #555;
+        border-bottom: 0.1rem solid #555;
+        li {
+          display: block;
+          border: none !important;
+          padding-left: 2rem;
+        }
+        a {
+          padding: 1rem;
+          &:after {
+            height: 0.2rem;
+          }
+        }
+      }
+    }
+    nav.opened {
+      transform: translateX(0);
+    }
+
+    nav.desktop {
+      @include center;
+      height: 100%;
+      @include breakpoint(mobile) {
+        display: none;
+      }
+    }
+    .hamburger {
+      display: none;
+      @include breakpoint(mobile) {
+        display: flex;
+        align-items: center;
+      }
+    }
+    .ctas {
+      display: flex;
+      margin-right: 2rem;
+      @include breakpoint(mobile) {
+        justify-content: center;
+        padding: 1.5rem 0;
+      }
+      &--mob {
+        display: none;
+        @include breakpoint(mobile) {
+          display: flex;
+        }
+      }
+      a {
+        @include center(center);
+        width: 6rem;
+        border-bottom: none !important;
+        &:hover {
+          animation: pulse $speed;
+        }
+        @include breakpoint(mobile) {
+          padding: 1.5rem;
+        }
+      }
+      img {
+        width: 3rem;
+        height: auto;
+        @include breakpoint(mobile) {
+          width: 2.5rem;
+        }
+      }
+    }
+    .lang {
+      @include center;
+      @include breakpoint(mobile) {
+        justify-content: center;
+      }
+      a {
+        &:hover {
+          animation: pulse $speed;
+        }
+        @include breakpoint(mobile) {
+          padding: 1.5rem;
+        }
+        img {
+          width: 2rem;
+          &:first-of-type {
+            margin-right: 2rem;
+            @include breakpoint(mobile) {
+              margin-right: 0;
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,290 @@
+.hero {
+  background: #262722;
+  .row {
+    @include center(space-between);
+    @include breakpoint(mobile) {
+      display: block;
+    }
+    &:last-of-type {
+      flex-direction: column;
+      width: 70%;
+      margin: 0 auto;
+      margin-top: 4rem;
+      @include breakpoint(mobile) {
+        margin-top: 3rem;
+        width: 100%;
+      }
+      .cta {
+        margin-top: 5rem;
+      }
+    }
+    &__col {
+      width: 45%;
+      &:first-of-type {
+        margin-right: 3rem;
+        @include breakpoint(mobile) {
+          margin-right: 0;
+          width: 90%;
+          margin: 0 auto;
+        }
+      }
+      &:last-of-type {
+        @include breakpoint(mobile) {
+          width: 70%;
+          margin: 0 auto;
+          margin-top: 3rem;
+        }
+      }
+      @include breakpoint(mobile) {
+        width: 100%;
+      }
+    }
+  }
+}
+.about {
+  .item {
+    $className: item;
+    transition: $speed $style;
+    &:hover {
+      .#{$className}__icon {
+        animation: $speed pulse;
+      }
+    }
+    @include breakpoint(mobile) {
+      max-width: 60rem;
+      margin: 0 auto;
+    }
+    &__icon {
+      img {
+        height: 8rem;
+        width: auto;
+        margin: 0 auto;
+      }
+    }
+    &__title {
+      font-weight: 500;
+      font-size: 2.6rem;
+      margin: 1.5rem 0;
+      text-align: center;
+      @include breakpoint(mobile) {
+        font-size: 2rem;
+      }
+    }
+    &__text {
+      margin: 0 auto;
+      text-align: justify;
+    }
+  }
+}
+.services {
+  p {
+    max-width: 80rem;
+    margin: 0 auto;
+    text-align: justify;
+    margin-bottom: 4rem;
+  }
+  .flex-wrap {
+    margin: -3rem;
+  }
+  .item {
+    width: 33.33%;
+    padding: 3rem;
+    @include breakpoint(mobile) {
+      max-width: 60rem;
+      width: 100%;
+      margin: 0 auto;
+      margin-bottom: 0 !important;
+      padding: 1.5rem 2rem;
+    }
+    .wrapper {
+      $className: item;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+      padding: 2rem;
+      border-radius: 1rem;
+      transition: all $speed $style;
+      background: rgba($green, 0.03);
+      height: 100%;
+      @include breakpoint(mobile) {
+        box-shadow: none;
+        padding: 0.5rem;
+        background: #fff;
+      }
+      &:hover {
+        box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25),
+          0 10px 10px rgba(0, 0, 0, 0.22);
+        .#{$className}__content {
+          transform: translateY(0);
+          opacity: 1;
+        }
+        @include breakpoint(mobile) {
+          box-shadow: none;
+        }
+      }
+    }
+    &__title {
+      color: $green;
+      font-size: 2.2rem;
+      text-align: center;
+      @include breakpoint(mobile) {
+        font-size: 2rem;
+        font-weight: 700;
+      }
+    }
+    &__img {
+      height: 20rem;
+      width: 100%;
+      margin: 2rem auto;
+      @include breakpoint(mobile) {
+        height: 14rem;
+      }
+      img {
+        height: 100%;
+        width: auto;
+        margin: 0 auto;
+      }
+    }
+
+    &__content {
+      position: absolute;
+      top: 0;
+      left: 0;
+      padding: 2rem;
+      margin: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      background: #222222e8;
+      transition: all $speed $style;
+      transform: translateY(100%);
+      opacity: 0;
+      @include breakpoint(mobile) {
+        display: block;
+        transform: translateY(0);
+        opacity: 1;
+        position: static;
+        background: transparent;
+        padding: 0;
+      }
+      p {
+        display: block;
+        font-size: 1.8rem;
+        text-align: center;
+        color: #fff;
+        margin-bottom: 2rem;
+        @include breakpoint(mobile) {
+          color: #222;
+          font-size: 1.6rem;
+          margin-bottom: 0;
+        }
+      }
+      button {
+        display: block;
+        color: #fff;
+        background: $green;
+        padding: 1rem;
+        width: 10rem;
+        margin: 0 auto;
+        border-radius: 1rem;
+        font-weight: 500;
+        cursor: pointer;
+        transition: all $speed $style;
+        @include breakpoint(mobile) {
+          display: none;
+        }
+        &:hover {
+          background: darken($green, 5%);
+        }
+      }
+    }
+  }
+}
+.whyus {
+  .wrapper {
+    background: #fff;
+  }
+  .item {
+    $className: item;
+    width: 50%;
+    // transition: all $speed $style;
+    @include breakpoint(mobile) {
+      width: min(60rem, 100%);
+      margin: 0 auto;
+    }
+    &:hover {
+      .#{$className}__img {
+        animation: $speed pulse;
+      }
+    }
+    .wrapper {
+      $className: item;
+      display: flex;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+      border-radius: 1rem;
+      transition: all $speed $style;
+      position: relative;
+      overflow: hidden;
+      @include breakpoint(mobile) {
+        // box-shadow: none;
+      }
+      &:hover {
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19),
+          0 6px 6px rgba(0, 0, 0, 0.23);
+        .#{$className}__content {
+          transform: translateY(0);
+          opacity: 1;
+        }
+      }
+    }
+    &__img {
+      width: 20rem;
+      padding: 1rem;
+      display: flex;
+      height: 14rem;
+      border-right: 0.1rem solid #99999961;
+      @include breakpoint(mobile) {
+        width: 12rem;
+      }
+      img {
+        width: 6rem;
+        margin: 0 auto;
+      }
+    }
+    &__content {
+      padding: 1rem;
+      @include center(center, flex-start);
+      flex-direction: column;
+      h5 {
+        font-size: 2rem;
+        font-weight: 700;
+      }
+    }
+  }
+}
+.partners {
+  .flex-wrap {
+    justify-content: center;
+  }
+  .item {
+    width: 12%;
+    padding: 0 2rem;
+    margin-bottom: 1rem;
+    @include center;
+    @include breakpoint(mobile) {
+      width: 25%;
+      padding: 0 1rem;
+      &:nth-child(n + 21) {
+        display: none;
+      }
+    }
+    img {
+      transition: all $speed $style;
+      &:hover {
+        transform: scale(1.1);
+      }
+    }
+  }
+}

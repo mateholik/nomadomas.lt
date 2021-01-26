@@ -1,0 +1,95 @@
+.blog-archive {
+  h1 {
+    @include sectionHeader;
+  }
+  .flex-wrap {
+    margin: -1.5rem;
+  }
+  .wrapper {
+    $className: item;
+    background: rgba($green, 0.03);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    transition: $speed;
+    margin-bottom: 4rem;
+    padding: 1.5rem;
+    height: 100%;
+    &:hover {
+      box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+      .#{$className}__img {
+        animation: $speed pulseSmall;
+      }
+    }
+    @include breakpoint(mobile) {
+      margin-bottom: 0;
+      height: auto;
+    }
+  }
+  .item {
+    width: 50%;
+    display: block;
+    padding: 1.5rem;
+    @include breakpoint(mobile) {
+      width: min(60rem, 100%);
+      margin: 0 auto;
+    }
+    &__title {
+      font-size: 3.2rem;
+      font-weight: 500;
+      margin-bottom: 2rem;
+      line-height: 4rem;
+      text-align: center;
+      @include breakpoint(mobile) {
+        font-size: 2.2rem;
+        line-height: 3rem;
+      }
+    }
+    &__wrap {
+      display: block;
+    }
+    &__img {
+      width:100%;
+      margin-bottom: 2rem;
+    }
+    &__content {
+      width: 100%;
+    }
+    &__text {
+      margin-bottom: 2rem;
+      text-align:justify;
+    }
+    &__date {
+      display: block;
+      font-size: 1.4rem;
+      margin-bottom: 1rem;
+      font-weight: 500;
+    }
+    .cta {
+      height: 4rem;
+      background: $green;
+      width: 12rem;
+      &:hover {
+        background: darken($green, 5%);
+      }
+      @include breakpoint(mobile) {
+        margin: 2rem 0;
+      }
+    }
+  }
+}
+.blog-single {
+  p {
+    margin-bottom: 3rem;
+  }
+  .entry-meta {
+    margin-bottom: 1rem;
+  }
+  h1 {
+    @include sectionHeader;
+  }
+  .image {
+    margin-bottom: 3rem;
+  }
+  .post-thumbnail {
+    margin-bottom: 2rem;
+  }
+}

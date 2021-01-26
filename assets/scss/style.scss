@@ -1,0 +1,40 @@
+@import 'reset';
+@import 'mixins';
+@import 'global';
+@import 'header';
+@import 'homepage';
+@import 'footer';
+@import 'team';
+@import 'service';
+@import 'blog';
+@import 'contact';
+@import 'sections';
+
+.vimeography-gallery {
+  width: 100%!important;
+}
+
+
+.inputs-wrap {
+  display: flex;
+  margin-bottom: 2rem;
+}
+
+.newsletter--small form {
+  .mc4wp-form-fields {
+    width: 100%;
+    margin-top: 2rem;
+  }
+}
+
+.hf-message {
+  text-align: center;
+  color: white;
+  margin-top: 1rem;
+}
+.hf-message-warning {
+  color: red;
+}
+.hf-message-success {
+  color: green;
+}

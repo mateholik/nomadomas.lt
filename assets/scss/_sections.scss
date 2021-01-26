@@ -1,0 +1,193 @@
+.contact-links {
+  a {
+    @include center;
+    margin-bottom: 1rem;
+    img {
+      width: 2rem;
+      margin-right: 1rem;
+    }
+  }
+}
+
+.recommend {
+  // background: #D5E1F0;
+  padding: 1rem 0;
+  &:hover {
+    img {
+      animation: $speed pulse;
+    }
+  }
+  a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-weight: 500;
+    img {
+      width: 18rem;
+      margin-top: 1rem;
+      @include breakpoint(mobile) {
+        width: 14rem;
+      }
+    }
+  }
+}
+
+.contact {
+  border-top: .1rem solid #555;
+  border-bottom: .1rem solid #555;
+  background: #b2b3b1;
+  background: #262722;
+  .title-image {
+    background: #262722;
+    max-width: 60rem;
+    margin: 0 auto;
+    margin-bottom: 4rem;
+  }
+  form {
+    width: min(50rem, 100%);
+    margin: 0 auto;
+  }
+  .input-wrap {
+    position: relative;
+    margin-bottom: 3rem;
+    input, textarea {
+      width: 100%;
+      border-bottom: 0.1rem solid $green;
+      transition: all $speed $style;
+      box-sizing: border-box;
+      padding: 0.5rem 0;
+      color: #fff;
+      font-size: 16px;
+      &:focus, &:not(:focus):valid {
+        box-shadow: 0 0.1rem $green;
+      }
+    }
+    .floating-label {
+      position: absolute;
+      pointer-events: none;
+      left: 0;
+      top: 0;
+      color: #fff;
+      transition: all $speed $style;
+    }
+    input:focus ~ .floating-label,
+    input:not(:focus):valid ~ .floating-label,
+    textarea:focus ~ .floating-label,
+    textarea:not(:focus):valid ~ .floating-label {
+      top: -1.2rem;
+      font-size: 1rem;
+      color: #fff;
+      opacity: 1;
+      &:after {
+        height: 0.2rem;
+      }
+    }
+    textarea {
+      min-height: 10rem;
+    }
+  }
+  input[type=submit] {
+    display: block;
+    background: $yellow;
+    color: #fff;
+    font-weight: 700;
+    padding: 1rem;
+    cursor: pointer;
+    width: 20rem;
+    margin: 0 auto;
+    transition: all $speed $style;
+    &:hover {
+      background: darken($yellow, 5%)
+    }
+  }
+}
+
+
+.newsletter {
+  &--small {
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    h3 {
+      text-align: center;
+    }
+    img {
+      width: 20rem;
+      margin: 0 auto;
+    }
+    form {
+      width: 85%;
+      margin: 0 auto;
+    }
+  }
+  h2 {
+    text-align: left;
+  }
+  .row {
+    display: flex;
+    @include breakpoint(mobile) {
+      flex-direction: column;
+    }
+    &__col {
+      width: 100%;
+      &:first-of-type {
+        width: min(32rem, 100%);
+        margin-right: 10rem;
+        @include breakpoint(mobile) {
+          width: min(22rem, 100%);
+        }
+        @include breakpoint(mobile) {
+          margin: 0 auto;
+          margin-bottom: 3rem;
+        }
+      }
+      &:last-of-type {
+        width: min(60rem, 100%);
+      }
+    }
+  }
+  p {
+    margin-bottom: 2rem;
+  }
+  form {
+    input[type=email] {
+      border: 0.2rem solid $red;
+      width: 100%;
+      padding: 1rem;
+    }
+    ::placeholder {
+      color: $red;
+    }
+    input[type=submit] {
+      background: $red;
+      color: #fff;
+      font-weight: 700;
+      padding: 1rem;
+      cursor: pointer;
+      &:hover {
+        background: darken($red, 5%);
+      }
+    }
+  }
+}
+
+
+.video-container {
+  overflow: hidden;
+  position: relative;
+  width:100%;
+  &:after {
+    padding-top: 56.25%;
+    display: block;
+    content: '';
+  }
+  iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+}

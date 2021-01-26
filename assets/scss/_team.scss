@@ -1,0 +1,55 @@
+.team-members {
+  h1 {
+    @include sectionHeader;
+  }
+  .flex-wrap {
+    justify-content: center;
+    margin-bottom: 4rem;
+    @include breakpoint(mobile) {
+      margin-bottom: 0;
+    }
+    .item {
+      $className: item;
+      width: 25%;
+      @include breakpoint(mobile) {
+        max-width: 20rem;
+        width: 100%;
+        margin: 0 auto;
+        margin-bottom: 4rem;
+        padding: 0 1rem;
+      }
+      &:hover {
+        .#{$className}__img {
+          animation: $speed pulse;
+        }
+      }
+      &__img {
+        border-radius: 50%;
+        overflow: hidden;
+        margin-bottom: 2rem;
+      }
+      &__name {
+        text-align: center;
+        font-size: 2rem;
+        margin-bottom: 1rem;
+        word-spacing: 99px;
+        line-height: 1.2;
+        @media(max-width: 440px) {
+          word-spacing: normal;
+        }
+      }
+      &__title {
+        text-align: center;
+        // font-weight: 500;
+      }
+    }
+  }
+  p {
+    max-width: 60rem;
+    margin: 0 auto;
+    text-align: justify;
+  }
+  .sub {
+    margin-bottom: 3rem;
+  }
+}

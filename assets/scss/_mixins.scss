@@ -1,0 +1,101 @@
+@mixin breakpoint($class) {
+  @if $class == mobile {
+    @media (max-width: 900px) {
+      @content;
+    }
+  }
+}
+@mixin sectionHeader {
+  font-size: 4rem;
+  font-weight: 700;
+  margin-bottom: 6rem;
+  text-align: center;
+  @include breakpoint(mobile) {
+    font-size: 2.4rem;
+    margin-bottom: 4rem;
+  }
+}
+@mixin sectionPadding {
+  padding: 6rem 0;
+  @include breakpoint(mobile) {
+    padding: 4rem 0;
+  }
+}
+@mixin center($justify: flex-start, $align: center) {
+  display: flex;
+  justify-content: $justify;
+  align-items: $align;
+}
+@mixin hideScrollBar {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none;  /* IE 10+ */
+  &::-webkit-scrollbar {
+    width: 0;
+    background: transparent; /* Chrome/Safari/Webkit */
+  }
+}
+
+//grid
+// $columns: 12;
+// @for $i from 1 through $columns {
+//   .col-#{$i} {
+//     flex: 0 0 100% / $columns * $i;
+//   }
+// }
+// .row {
+//   display: flex;
+//   flex-wrap: wrap;
+// }
+
+//div[class^="col-"] {
+//  background: red;
+//  border: 1px solid green;
+//}
+//grid end
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+
+  50%{
+    transform: scale(1.1);
+  }
+
+  100%{
+    transform: scale(1);
+  }
+}
+@keyframes pulseSmall {
+  0% {
+    transform: scale(1);
+  }
+
+  50%{
+    transform: scale(1.01);
+  }
+
+  100%{
+    transform: scale(1);
+  }
+}
+
+@keyframes submenu {
+  0% {
+    opacity: 0;
+    transform: rotateY(-90deg) translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: rotateY(0deg) translateY(0);
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

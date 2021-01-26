@@ -1,0 +1,82 @@
+footer {
+  background: #262722;
+  color: #fff;
+  a {
+    color: #fff;
+  }
+  .contact-links {
+    a {
+      margin-bottom: 1.5rem;
+    }
+  }
+  .top {
+    padding: 4rem 0;
+    // border-top: 0.1rem solid grey;
+    border-bottom: 0.1rem solid #555;
+    @include breakpoint(mobile) {
+      padding-top: 0;
+    }
+    a {
+      &:hover {
+        animation: pulseSmall $speed;
+      }
+    }
+  }
+  .row {
+    display: flex;
+    @include breakpoint(mobile) {
+      flex-direction: column;
+    }
+    &__col {
+      width: 33.33%;
+      @include breakpoint(mobile) {
+        width: 100%;
+      }
+      &:nth-child(1) {
+        img {
+          width: 20rem;
+          margin: 0 auto;
+          @include breakpoint(mobile) {
+            margin: 3rem auto;
+            margin-left: 0;
+            margin-bottom: 5rem;
+          }
+        }
+      }
+      &:nth-child(2) {
+        padding-left: 5%;
+        margin-right: 2%;
+        @include breakpoint(mobile) {
+          padding-left: 0;
+          margin-right: 0;
+        }
+      }
+      &:nth-child(3) {
+        @include breakpoint(mobile) {
+          margin-top: 3rem;
+        }
+      }
+    }
+  }
+  .bottom {
+    padding: 2rem 0;
+    .wrap {
+      @include center(center);
+      .text {
+        margin-right: 2rem;
+      }
+    }
+    .icons-social {
+      @include center;
+      img {
+        width: 2rem;
+        margin-right: 1rem;
+      }
+    }
+    a {
+      &:hover {
+        animation: pulse $speed;
+      }
+    }
+  }
+}
