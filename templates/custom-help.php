@@ -1,20 +1,21 @@
-<?php /* Template Name: Custom */  
+<?php /* Template Name: Custom Help */  
 get_header();
 ?>
-<section class="hero">
+<section class="hero" style ="background: <?php echo get_field('hero_background_color'); ?>">
     <div class="container">
-      <div class="row">
-        <div id="heroLeft" class="row__col">
-          <img src="<?php echo get_field('hero_left_image'); ?>" alt="hero1">
+      <div class="help">
+        <div class="right">
+          <img class="text-img" src="<?php echo get_field('hero_left_image'); ?>" alt="hero1">
+          <a id="cta" href="<?php echo get_field('hero_cta')['link']; ?>"><img src="<?php echo get_field('hero_cta')['text']; ?>" alt=""></a>
         </div>
-        <div id="heroRight" class="row__col">
+        <div class="left">
           <img src="<?php echo get_field('hero_right_image'); ?>" alt="hero2">
         </div>
       </div>
-      <div id="heroBottom" class="row">
+      <!-- <div class="row">
         <img src="<?php echo get_field('hero_bottom_image'); ?>" alt="hero3">
         <a id="cta" class="cta" href="<?php echo get_field('hero_cta')['link']; ?>"><?php echo get_field('hero_cta')['text']; ?></a>
-      </div>
+      </div> -->
     </div>
   </section>
   <section class="description bg-green">

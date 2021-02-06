@@ -1,19 +1,18 @@
-@import 'reset';
-@import 'mixins';
-@import 'global';
-@import 'header';
-@import 'homepage';
-@import 'footer';
-@import 'team';
-@import 'service';
-@import 'blog';
-@import 'contact';
-@import 'sections';
+@import "reset";
+@import "mixins";
+@import "global";
+@import "header";
+@import "homepage";
+@import "footer";
+@import "team";
+@import "service";
+@import "blog";
+@import "contact";
+@import "sections";
 
 .vimeography-gallery {
-  width: 100%!important;
+  width: 100% !important;
 }
-
 
 .inputs-wrap {
   display: flex;
@@ -38,3 +37,111 @@
 .hf-message-success {
   color: green;
 }
+
+.marketing {
+  position: relative;
+  @include breakpoint(mobile) {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+  width: 100%;
+  .left {
+    width: 50%;
+    @include breakpoint(mobile) {
+      width: 80%;
+      margin: 0 auto;
+    }
+  }
+  .right {
+    width: 85%;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 0;
+    @include breakpoint(mobile) {
+      transform: none;
+      position: static;
+      width: 100%;
+    }
+  }
+}
+.help {
+  display: flex;
+  flex-direction: row-reverse;
+  position: relative;
+  @include breakpoint(mobile) {
+    display: flex;
+    flex-direction: column;
+  }
+  width: 100%;
+  .left {
+    width: 50%;
+    @include breakpoint(mobile) {
+      width: 100%;
+      margin: 0 auto;
+    }
+  }
+  .right {
+    width: 70%;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 0;
+    @include breakpoint(mobile) {
+      transform: none;
+      position: static;
+      width: 100%;
+    }
+    a {
+      display: block;
+      width: 40%;
+      margin: 0 auto;
+      @include breakpoint(mobile) {
+        display: none;
+      }
+    }
+  }
+}
+
+// .help {
+//   position: relative;
+//   @include breakpoint(mobile) {
+//     display: flex;
+//     flex-direction: column;
+//   }
+//   width: 100%;
+//   .left {
+//     width: 60%;
+//     display: flex;
+//     flex-direction: column;
+//     align-items: center;
+//     justify-content: center;
+//     @include breakpoint(mobile) {
+//       width: 100%;
+//       margin: 0 auto;
+//     }
+//     .text-img {
+//       position: relative;
+//       z-index: 2;
+//     }
+//     a {
+//       width: 51%;
+//       display: block;
+//       @include breakpoint(mobile) {
+//         display: none;
+//       }
+//     }
+//   }
+//   .right {
+//     width: 60%;
+//     position: absolute;
+//     top: 50%;
+//     transform: translateY(-50%);
+//     right: 0;
+//     @include breakpoint(mobile) {
+//       transform: none;
+//       position: static;
+//       width: 100%;
+//     }
+//   }
+// }
