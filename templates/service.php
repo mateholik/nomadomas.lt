@@ -18,7 +18,7 @@ get_header();
           </a>
         </div>
         <div id="heroRight" class="row__col">
-         <img src="<?php bloginfo('template_url'); ?>/assets/img/services/1.svg" alt="GOOGLE REKLAMA">
+         <img src="<?php the_field('hero_image'); ?>" alt="<?php the_field('hero_title'); ?>">
         </div>
       </div>
     </div>
@@ -88,6 +88,37 @@ get_header();
     </div>
   </section>
 
+
+  <?php if(get_field('show_faq_section') == 'Yes') { ?>
+ <section class="faq bg-yellow">
+  <div class="container">
+    <div class="faq__wrap">
+    <h2><?php the_field('faq_section_title'); ?></h2>
+      <div class="tabs">
+      <?php 
+        $items = get_field('faq_item');
+        if( $items ) {
+          foreach( $items as $item ) { ?>
+
+        
+          <div class="tab">
+            <input type="checkbox" id="<?php echo $item['title']; ?>">
+            <label class="tab-label" for="<?php echo $item['title']; ?>"><?php echo $item['title']; ?></label>
+            <div class="tab-content">
+              <?php echo $item['content']; ?>
+            </div>
+          </div>
+
+            <?php
+          }
+        } 
+      ?>
+      
+    
+    </div>
+  </div>
+ </section>
+<?php } ?>
 <?php 
 get_footer();
 ?>

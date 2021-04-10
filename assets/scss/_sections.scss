@@ -33,8 +33,8 @@
 }
 
 .contact {
-  border-top: .1rem solid #555;
-  border-bottom: .1rem solid #555;
+  border-top: 0.1rem solid #555;
+  border-bottom: 0.1rem solid #555;
   background: #b2b3b1;
   background: #262722;
   .title-image {
@@ -50,7 +50,8 @@
   .input-wrap {
     position: relative;
     margin-bottom: 3rem;
-    input, textarea {
+    input,
+    textarea {
       width: 100%;
       border-bottom: 0.1rem solid $green;
       transition: all $speed $style;
@@ -58,7 +59,8 @@
       padding: 0.5rem 0;
       color: #fff;
       font-size: 16px;
-      &:focus, &:not(:focus):valid {
+      &:focus,
+      &:not(:focus):valid {
         box-shadow: 0 0.1rem $green;
       }
     }
@@ -86,7 +88,7 @@
       min-height: 10rem;
     }
   }
-  input[type=submit] {
+  input[type="submit"] {
     display: block;
     background: $yellow;
     color: #fff;
@@ -97,11 +99,10 @@
     margin: 0 auto;
     transition: all $speed $style;
     &:hover {
-      background: darken($yellow, 5%)
+      background: darken($yellow, 5%);
     }
   }
 }
-
 
 .newsletter {
   &--small {
@@ -152,7 +153,7 @@
     margin-bottom: 2rem;
   }
   form {
-    input[type=email] {
+    input[type="email"] {
       border: 0.2rem solid $red;
       width: 100%;
       padding: 1rem;
@@ -160,7 +161,7 @@
     ::placeholder {
       color: $red;
     }
-    input[type=submit] {
+    input[type="submit"] {
       background: $red;
       color: #fff;
       font-weight: 700;
@@ -173,15 +174,14 @@
   }
 }
 
-
 .video-container {
   overflow: hidden;
   position: relative;
-  width:100%;
+  width: 100%;
   &:after {
     padding-top: 56.25%;
     display: block;
-    content: '';
+    content: "";
   }
   iframe {
     position: absolute;
@@ -189,5 +189,71 @@
     left: 0;
     width: 100%;
     height: 100%;
+  }
+}
+
+.faq {
+  $midnight: #fff;
+  $clouds: #ecf0f1;
+  input {
+    position: absolute;
+    opacity: 0;
+    z-index: -1;
+  }
+
+  .tab {
+    width: 100%;
+    color: #222;
+    overflow: hidden;
+    border-bottom: 1px solid #d4d4d4;
+    &-label {
+      display: flex;
+      padding: 1em;
+      font-weight: bold;
+      cursor: pointer;
+      align-items: center;
+      &::before {
+        content: "\276F";
+        width: 1em;
+        height: 1em;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: all 0.35s;
+        margin-right: 8px;
+        font-weight: normal;
+      }
+    }
+    &-content {
+      max-height: 0;
+      padding: 0 1em;
+      color: #222;
+      transition: all 0.35s;
+    }
+    &-close {
+      display: flex;
+      justify-content: flex-end;
+      padding: 1em;
+      font-size: 0.75em;
+      background: $midnight;
+      cursor: pointer;
+      &:hover {
+        // background: darken($midnight, 10%);
+      }
+    }
+  }
+
+  // :checked
+  input:checked {
+    + .tab-label {
+      // background: darken($midnight, 10%);
+      &::before {
+        transform: rotate(90deg);
+      }
+    }
+    ~ .tab-content {
+      max-height: 100vh;
+      padding: 1em;
+    }
   }
 }
